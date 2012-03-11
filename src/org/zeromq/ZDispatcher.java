@@ -126,7 +126,7 @@ public class ZDispatcher {
                 threadpool.submit(new Runnable() {
                     @Override
                     public void run() {
-                        ZMessageBuffer messages = SocketDispatcher.this.messages.get();
+                        ZMessageBuffer messages = SocketDispatcher.messages.get();
                         messages.drainFrom(in);
                         busy.set(false);
                         for (int i = 0; i <= messages.lastValidIndex; i++) {
